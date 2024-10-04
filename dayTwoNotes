@@ -1,0 +1,88 @@
+// Declaring an array.
+int[] numbers = new int[10];
+
+// Declaring nullableArray.
+int?[] nullableArray = new int?[10];
+
+string[] names = new string[5];
+Console.WriteLine(names[0]);    // this will print an empty line.
+
+string[] name = new string[3] { "a", "b", "c" };
+Console.WriteLine(names[0].ToUpper());       // A will be the output. 
+
+string[] nullNames  =new string[3];
+Console.WriteLine(nullNames[0].ToUpper());   // An empty line is printed because nullNames[0] is null and ToUpper() is not called.
+
+string[] nullnames = { null, null, null };
+Console.WriteLine(nullNames[0].ToUpper());   
+
+
+1)  int[] data = new int[5];                                                    
+    for(int i =0; i < data.Length; i++)
+    {
+      Console.Write("Enter he number {i}:");
+      data[i] = int.Parse(Console.ReadLine());
+    }
+    for(int i = 0; i < 5; i++)
+    {
+      Console.WriteLine($"the number at indes {i} is {data[i]}");
+    }
+
+// output:
+Enter the number at index 0: 1
+Enter the number at index 1: 2
+Enter the number at index 2: 3
+Enter the number at index 3: 4
+Enter the number at index 4: 5
+The number at index 0 is 1
+The number at index 1 is 2
+The number at index 2 is 3
+The number at index 3 is 4
+The number at index 4 is 5
+
+// sTRING FUNCTIONS.
+var text = "  hello"; 
+
+// Convert the string to uppercase and print it.
+Console.WriteLine(text.ToUpper()); // Output: "  HELLO"
+
+// Convert the string to lowercase and print it.
+Console.WriteLine(text.ToLower()); // Output: "  hello"
+
+// Convert the string to uppercase invariant culture and print it.
+Console.WriteLine(text.ToUpperInvariant()); // Output: "  HELLO"
+
+// Replace spaces with hyphens and print the result.
+Console.WriteLine(text.Replace(" ", "-")); // Output: "--hello"
+
+// Remove the first 3 characters from the string and print the result.
+Console.WriteLine(text.Remove(0, 3)); // Output: "hello"
+
+// Check if the string contains the substring "hello" and print the result.
+Console.WriteLine(text.Contains("hello")); // Output: "True"
+
+// Check if the string starts with "  hello" and print the result.
+Console.WriteLine(text.StartsWith("  hello")); // Output: "True"
+
+// Check if the string ends with "hello" and print the result.
+Console.WriteLine(text.EndsWith("hello")); // Output: "True"
+
+// Convert the string to a character array and print the characters as a comma-separated string.
+char[] chars = text.ToCharArray(); // Corrected variable name from 'char' to 'chars'
+Console.WriteLine(string.Join(",", chars)); // Output: " ,h,e,l,l,o"
+
+
+var texts = "  hello  ";
+
+// Trim whitespace from both ends of the string and print the result.
+Console.WriteLine(texts.Trim()); // Output: "hello"
+
+// Trim whitespace from the start of the string and print the result.
+Console.WriteLine(texts.TrimStart()); // Output: "hello  "
+
+// Trim whitespace from the end of the string and print the result.
+Console.WriteLine(texts.TrimEnd()); // Output: "  hello"
+
+
+
+ 
