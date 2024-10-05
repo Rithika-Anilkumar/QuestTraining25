@@ -1,0 +1,63 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day3
+{
+    internal class Program
+    {
+        // Fuction Without Parameter.
+        static void greet()
+        {
+            Console.WriteLine("hello");
+        }
+
+        // Function With Parameter.
+        static void GreetByName(string firstName)
+        {
+            Console.WriteLine("hello"+ " "+ firstName);
+        }
+
+        // Method OverLoading.
+        static void GreetByName(string firstName,string lastName)
+        {
+            Console.WriteLine("hello" + " " + firstName + " " + lastName);
+        }
+
+        // Function To Add Numbers Without Return Type.
+        static void AddNumbers(int num1,int num2)
+        {
+            int sum = 0;
+            sum = num1 + num2;
+            Console.WriteLine(sum);
+        }
+
+        // Function With Return Type.
+        static int Add(int a, int b)
+        {
+            return a + b;
+
+        }
+
+        //Single line Functions.
+        static void SingleLineAdd(int a, int b) => Console.WriteLine(a + b);
+
+        //Single Line Functions With Return Type.
+        static int SingleLineAddWithReturn(int a, int b) => a + b;
+
+        static void Main(string[] args)
+        {
+            greet();
+            GreetByName("jo");
+            GreetByName("ri", "an");
+            AddNumbers(1, 4);
+            int result = Add(1, 2);
+            Console.WriteLine(result);
+            SingleLineAdd(2, 3);
+            Console.WriteLine(SingleLineAddWithReturn(3,4)); 
+        }
+    }
+}
