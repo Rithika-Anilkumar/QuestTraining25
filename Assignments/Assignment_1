@@ -1,0 +1,36 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Remoting.Channels;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace assignmentOne
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            string pattern = "10_200_3_1";
+            int sum = 0;
+            int currentNumber = 0;
+            for (int i = 0; i < pattern.Length; i++)
+            {
+                char c = pattern[i];
+                if(c == '_')
+                {
+                    sum += currentNumber;
+                    currentNumber = 0;
+
+                }
+                else
+                {
+                    currentNumber = currentNumber * 10 + (c - '0');
+                }
+            }
+            sum += currentNumber;
+            Console.WriteLine(sum);
+
+        }
+    }
+}
