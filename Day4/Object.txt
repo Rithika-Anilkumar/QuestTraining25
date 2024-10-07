@@ -1,0 +1,6 @@
+// Define Object.
+object ob = null;
+string s = "hello";
+ob = s;
+Console.WriteLine(ob.GetType());
+string s1 = (String)ob;
