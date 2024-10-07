@@ -1,0 +1,34 @@
+  // DictionaryType.
+   Dictionary<string,string> d=new Dictionary<string,string>();
+
+   // Method 2.
+   var d=new Dictionary<string,string>();
+   d.Add("firstname","jo");
+   d.Add("lastname", "jo");
+
+   // Acessing a value.
+   Console.WriteLine(d["first name"]);
+
+   // Removing a value.
+   d.Remove("last name");
+
+   // Updating a value.
+   d["first name"] = "ro";
+   Console.WriteLine(d["first name"]);
+
+   // Check if key exist.
+   if (d.ContainsKey("Age"))
+   {
+       Console.WriteLine("Age key exists");
+   }
+   else
+   {
+       Console.WriteLine("Age does not exists");
+   }
+
+   // Looping a Dictionary.
+   Console.WriteLine("-----------");
+   foreach(var item in d)
+   {
+       Console.WriteLine($"{item.Key}:{item.Value}");
+   }
