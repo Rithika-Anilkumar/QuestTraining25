@@ -1,0 +1,136 @@
+
+
+            // Find Age by DOB.
+
+            Console.WriteLine("Enter date of Birth  (MM/DD/YYYY):");
+            string input = Console.ReadLine();
+            DateTime DOB = DateTime.Parse(input);
+            int age = DateTime.Now.Year-DOB.Year;
+            Console.WriteLine($"Age:{age}");
+
+
+            // Prompt the user to enter 5 numbers, remove  odd numbers from the list display remaining even numbers.
+            List<int> numbers = new List<int>();
+            Console.WriteLine("Enter 5 numbers:");
+            for (int i = 0; i < 5; i++)
+            {
+                int num = int.Parse(Console.ReadLine());
+                numbers.Add(num);
+
+
+            }
+            for (int i=0;i<lst.Count;i++)
+            {
+                if (lst[i] % 2 != 0)
+                {
+                    lst.RemoveAt(i);
+                }
+
+            }
+            Console.WriteLine(string.Join(",",lst));
+
+
+            // Prompt the user to enter marks for 2 students, each having 2 marks, store them in a list of lists, and then display the marks for each student.
+            
+            var data = new List<List<int>>();
+            for (int i = 0; i < 2; i++)
+            {
+                
+                List<int> marks = new List<int>();
+                for(int j=1;j<3;j++)
+                {
+                    Console.Write($"Enter mark {j}: ");
+                    int mark = int.Parse(Console.ReadLine());
+                    marks.Add(mark);
+
+                }
+                data.Add(marks);
+
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("Marks of students:");
+            for (int i = 0; i < data.Count; i++)
+            {
+                Console.Write($"Student {i + 1}: [");
+                Console.Write(string.Join(", ", data[i]));
+                Console.WriteLine("]");
+
+
+            }
+
+
+            // This code collects marks for 2 students, each having 3 marks,stores them in a list of lists, and then displays the marks for each student.
+
+
+            <int>[] data1 = new List<int>[2];
+            for (int i = 0; i < data1.Length; i+++)
+            {
+                data1[i] = new List<int>();
+
+            }
+            for (int i = 0; i < data1.Length; i++)
+            {
+                for (int j = 1; j <= 3; j++)
+                {
+                    Console.Write($"Enter mark {j} for student {i + 1}: ");
+                    int mark = int.Parse(Console.ReadLine());
+                    data1[i].Add(mark); 
+
+
+                }
+
+
+            }
+            Console.WriteLine();
+
+            for (int i = 0; i < data1.Length; i++) {
+                Console.Write($"Student {i + 1}: [");
+                Console.Write(string.Join(", ", data1[i]));
+                Console.WriteLine("]");
+            }
+
+
+            // Iterate over a collection of key-value pairs (likely a Dictionary or similar data structure) and print each key followed by its corresponding list of values, formatted as a comma-separated string.
+
+            var d = new Dictionary<string, List<int>>();
+
+            while (true)
+            {
+                Console.Write("Enter an ID or 'q' to exit: ");
+                var option = Console.ReadLine();
+                if (option == "q")
+                {
+                    break;
+                }
+
+                if (d.ContainsKey(option))
+                {
+                    Console.Write("ID already exists. Do you want to replace it? (yes/no): ");
+                    var replace = Console.ReadLine();
+                    if (replace.ToLower() != "yes")
+                    {
+                        continue;
+                    }
+                } 
+
+            var marks = new List<int>();
+
+            for (int i = 1; i <= 3; i++)
+            {
+                Console.Write($"Enter mark {i}: ");
+                var mark = int.Parse(Console.ReadLine());
+                marks.Add(mark);
+            }
+
+            d [option] = marks;
+
+            foreach (var item in d)
+            {
+                Console.WriteLine($"{item.Key}: {string.Join(", ", item.Value)}");
+            }
+
+            
+}
+
+
