@@ -1,0 +1,37 @@
+
+            // Local Date and Time.
+            DateTime dt = DateTime.Now;
+            Console.WriteLine(dt);
+
+            // UTC Time.
+            DateTime dt1 = DateTime.UtcNow;
+
+            Console.WriteLine($"Day:{dt.Day}");
+            Console.WriteLine($"Month:{dt.Month}");
+            Console.WriteLine($"Year:{dt.Year}");
+            Console.WriteLine($"Hour:{dt.Hour}");
+            Console.WriteLine($"Minute:{dt.Minute}");
+            Console.WriteLine($"Second:{dt.Second}");
+            Console.WriteLine($"MilliSecond:{dt.Millisecond}");
+
+            // Date Time Operations.
+            var tenDayFromNow = dt.AddDays(10);
+            Console.WriteLine(tenDayFromNow);
+
+            var tenDayFromNowandTwentyDaysFromNow = dt.AddHours(10).AddDays(10);
+            Console.WriteLine(tenDayFromNowandTwentyDaysFromNow);
+
+            // Formatting the Output.
+            Console.WriteLine("------------");
+            Console.WriteLine($"standard output:{dt}");
+            Console.WriteLine(dt.ToString("dd-MM-yyyy hh:mm:ss"));
+            Console.WriteLine(dt.ToString("MM-dd-yyyy hh:mm:ss"));
+            Console.WriteLine(dt.ToString("MM/dd/yyyy"));
+            Console.WriteLine(dt.ToString("MM-dd-yyyy"));
+            Console.WriteLine(dt.ToString("hh:mm:ss"));
+
+            // Constructing DateTime.
+            var myDt = new DateTime(2024, 10, 7, 12, 50, 59);
+            Console.WriteLine($"My Date ad Time:{myDt}");
+
+
