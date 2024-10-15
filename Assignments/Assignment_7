@@ -175,7 +175,7 @@ else
     Console.WriteLine("Bob not found.");
 }// Output:
  // Bob's age: 25
- // Charlie not found.
+ 
 
 
 
@@ -221,3 +221,121 @@ foreach (var value in values)
  // Values in the dictionary:
  // 30
  // 25
+-----Strings--------
+1. Length
+Returns the number of characters in a string.
+eg:
+string name = "CSharp";
+int length = name.Length; // length = 6
+
+2. Split()
+Splits a string into an array of substrings based on a delimiter.
+eg:
+string sentence = "Hello World CSharp";
+string[] words = sentence.Split(' '); // words = { "Hello", "World", "CSharp" }
+
+3. StartsWith()
+Determines whether a string starts with a specified prefix.
+eg:
+string text = "Hello World";
+bool startsWithHello = text.StartsWith("Hello"); // true
+
+4. ToUpper()
+Converts a string to uppercase.
+eg:
+string text = "hello";
+string upper = text.ToUpper(); // upper = "HELLO"
+
+5. ToLower()
+Converts a string to lowercase.
+eg:
+string text = "HELLO";
+string lower = text.ToLower(); // lower = "hello"
+
+6. Equals()
+Determines whether two strings are equal.
+eg:
+string text1 = "Hello";
+string text2 = "hello";
+bool isEqual = text1.Equals(text2); // false 
+
+7. Trim()
+Removes leading and trailing white-space characters from the string.
+eg:
+string text = "  Hello World  ";
+string trimmed = text.Trim(); // trimmed = "Hello World"
+
+8. Concat()
+Concatenates (joins) two or more strings.
+eg:
+string firstName = "John";
+string lastName = "Doe";
+string fullName = string.Concat(firstName, " ", lastName); // fullName = "John Doe"
+
+9. Substring()
+Retrieves a substring from a string, starting from the specified index.
+eg:
+string text = "CSharpProgramming";
+string sub = text.Substring(6, 11); // sub = "Programming"
+
+10. Contains()
+Determines whether a string contains a specified substring.
+eg:
+string sentence = "Hello CSharp";
+bool containsCSharp = sentence.Contains("CSharp"); // true
+
+11. Replace()
+Replaces all occurrences of a specified substring with another string.
+eg:
+string text = "Hello World";
+string newText = text.Replace("World", "CSharp"); // newText = "Hello CSharp"
+
+12. IndexOf()
+Returns the index of the first occurrence of a character or substring.
+eg:
+string text = "Hello CSharp";
+int index = text.IndexOf('C'); // index = 6
+
+13. LastIndexOf()
+Returns the index of the last occurrence of a character or substring.
+eg:
+string text = "Hello CSharp CSharp";
+int lastIndex = text.LastIndexOf("CSharp"); // lastIndex = 12
+
+14. ToCharArray()
+Converts a string to an array of characters.
+eg:
+string text = "Hello";
+char[] chars = text.ToCharArray(); // chars = { 'H', 'e', 'l', 'l', 'o' }
+
+15. Join()
+Concatenates the elements of a string array, using a specified separator between each element.
+eg:
+string[] words = { "Hello", "World", "CSharp" };
+string sentence = string.Join(" ", words); // sentence = "Hello World CSharp"
+
+16. Remove()
+Deletes a specified number of characters starting at a specified index.
+eg:
+text = "Hello CSharp";
+string newText = text.Remove(5); // newText = "Hello"
+
+17. EndsWith()
+Checks if a string ends with a specified suffix.
+eg:
+string text = "Hello World";
+bool endsWithWorld = text.EndsWith("World"); // true
+
+18. PadLeft() and PadRight()
+Pads the string with spaces (or another specified character) to the left or right.
+eg:
+string text = "Hello";
+string padded = text.PadRight(10); // padded = "Hello"
+
+19. Format()
+Replaces the format items in a string with the string representation of corresponding objects.
+eg:
+string name = "John";
+int age = 30;
+string formattedString = string.Format("Name: {0}, Age: {1}", name, age); 
+// "Name: John, Age: 30"
