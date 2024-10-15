@@ -1,0 +1,131 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace testOne
+{
+    internal class Program
+    {
+        static Dictionary<int, Dictionary<string, string>> patients = new Dictionary<int, Dictionary<string, string>>();
+
+        public static void AddPatient()
+        {
+            Console.WriteLine("Enter id");
+            int id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter the name");
+            string name = Console.ReadLine();
+            Console.WriteLine("Enter the age");
+            string age = Console.ReadLine();
+            Console.WriteLine("Enter the diagnosis");
+            string diag = Console.ReadLine();
+            Console.WriteLine("Enter A for admitted D for discharged");
+            string admissionstatus = Console.ReadLine().ToUpper();
+
+            patients.Add(id, new Dictionary<string, string>
+            {
+                {"name",name },
+                {"age",age },
+                {"diagnosis",diag },
+                {"admittedOrNot",admissionstatus}
+
+            });
+
+
+        }
+
+
+        public static void SearchPatient()
+        {
+            Console.WriteLine("Enter patient's name to search:");
+            string search = Console.ReadLine();
+            foreach (var patient in patients)
+            {
+                var details = patient.Value;
+                if (details["name"].Contains(search))
+                {
+                    Console.WriteLine($" ID: {patient.Key}");
+                    Console.WriteLine($"Name: {details["name"]}");
+                    Console.WriteLine($"Age: {details["age"]}");
+                    Console.WriteLine($"Diagnosis: {details["diagnosis"]}");
+                    Console.WriteLine($"Admitted: {details["admittedOrNot"]}");
+                }
+            }
+
+
+        }
+        public static void UpdateDiagnosis()
+        {
+            Console.WriteLine("Enter id of person to update");
+            int id = int.Parse(Console.ReadLine());
+            if (patients.ContainsKey(id))
+            {
+                Console.WriteLine("Enter updated diagnosis");
+                string newdiag = Console.ReadLine();
+                patients[id]["diagnosis"] = newdiag;
+                Console.WriteLine("updated successfully");
+            }
+        }
+        public static void UpdateAdmissionStatus()
+        {
+            Console.WriteLine("Enter ID of person to update");
+            int id = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter updated status");
+            string newadmissionstatus = Console.ReadLine().ToUpper();
+            patients[id]["admittedOrNot"] = newadmissionstatus;
+            Console.WriteLine("updated successfully");
+        }
+         static void AdmiitedList()
+        {
+            foreach(var patient in patients)
+            {
+                var details = patient.Value;
+                if (details["admissionstatus"] == "A")
+                {
+                    Console.WriteLine($"patient name:{details["name"]}");
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.Write("Enter the choice :  ");
+                Console.WriteLine("1. Add");
+                Console.WriteLine("2. search");
+                Console.WriteLine("3. Update Diagnosis");
+                Console.WriteLine("4. Update AdmissionStatus");
+                Console.WriteLine("5. AdmiitedList");
+                int choice = int.Parse(Console.ReadLine());
+                switch (choice)
+                {
+                    case 1:
+                        AddPatient();
+                        break;
+                    case 2:
+                        SearchPatient();
+                        break;
+                    case 3:
+                        UpdateDiagnosis();
+                        break;
+                    case 4:
+                        UpdateAdmissionStatus();
+                        break;
+                    case 5:
+                        AdmittedList();
+                        break;
+                    case 6:
+                        return;
+                   
+                        
+
+
+
+                }
+            }
+            
+
+        }
+    }
+}
