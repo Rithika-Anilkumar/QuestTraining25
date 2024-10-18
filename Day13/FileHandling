@@ -1,0 +1,15 @@
+            //Example path and file name (update these values for actual use)
+            var path = "";
+            var fileName = "data.txt";
+
+            // Combine the path and file name to get the full file path
+            var filePath = Path.Combine(path, fileName);
+
+            // Read the entire file content into a string
+            var content = File.ReadAllText(filePath);
+
+            // Read all lines from the file into a string array
+            string[] contentLines = File.ReadAllLines(filePath);
+
+            // Output the file content to the console
+            Console.WriteLine(content);

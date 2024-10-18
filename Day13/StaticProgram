@@ -1,0 +1,58 @@
+using System;
+
+namespace StaticExample
+{
+    // Employee class representing an employee with a static CompanyName property
+    class Employee
+    {
+        public string Name { get; set; }        
+        public static string CompanyName { get; set; }  
+
+        // Static constructor to initialize the CompanyName for all instances
+        static Employee()
+        {
+            CompanyName = "Microsoft";  
+        }
+
+        // Constructor to initialize the Name field
+        public Employee(string name)
+        {
+            Name = name;
+        }
+
+        // Override ToString method to display employee information
+        public override string ToString()
+        {
+            return $"{Name} works at {CompanyName}";
+        }
+    }
+
+    // AppSettings class with static fields for configuration settings
+    class AppSettings
+    {
+        public static string Version { get; set; } = "1.0.0";           // Static version number
+        public static string ProjectUrl { get; set; } = "https://github.com";  // Static project URL
+
+        // Private constructor to prevent instantiation of the class
+        private AppSettings() { }
+    }
+
+    internal class Program
+    {
+       
+        static void Main(string[] args)
+        {
+            // Test the Employee class functionality
+            Employee.CompanyName = "Old Company";  // Modify the static company name
+            var e1 = new Employee("John Doe");     // Create a new employee
+            Console.WriteLine(e1);                 // Expected output: "John Doe works at Old Company"
+
+            Employee.CompanyName = "New Company";  // Change company name for all employees
+            Console.WriteLine(e1);                 // Expected output: "John Doe works at New Company"
+
+            // Test the AppSettings class
+            Console.WriteLine(AppSettings.Version);  // Output the version number
+            Console.WriteLine(AppSettings.ProjectUrl);  // Output the project URL
+        }
+    }
+}
