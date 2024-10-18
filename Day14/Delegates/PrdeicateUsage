@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+
+namespace dayFourteen1
+{
+    internal class Program
+    {
+        // Predicate method to check if a number is even
+        static bool IsEven(int value) => value % 2 == 0;
+
+        // Predicate method to check if a number is negative
+        static bool IsNegative(int value) => value < 0;
+
+        // Method to filter the array based on a provided predicate
+        static void GetDataPassedOnTheCondition(int[] data, Predicate<int> predicate)
+        {
+            // Create a list to hold the filtered results
+            var result = new List<int>();
+            foreach (var item in data)
+            {
+                // If the item satisfies the predicate condition, add it to the result list
+                if (predicate(item))
+                {
+                    result.Add(item);
+                }
+            }
+
+            // Print the filtered results
+            Console.WriteLine(string.Join(",", result));
+        }
+
+        static void Main(string[] args)
+        {
+            // Example array of integers
+            var data = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -3, -5 };
+
+            // Calling the method with a predicate to filter even numbers
+            GetDataPassedOnTheCondition(data, i => i % 2 == 0);  // Output: 2,4,6,8,10
+
+            // Calling the method with a predicate to filter negative numbers
+            GetDataPassedOnTheCondition(data, x => x < 0);  // Output: -3,-5
+        }
+    }
+}
