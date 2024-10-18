@@ -1,0 +1,41 @@
+using System;
+using System.Threading;
+
+namespace DelegateExample
+{
+    class Program
+    {
+        // Declare a delegate
+        delegate void TaskDelegate();
+
+        // Method for the delegate
+        static void StartTimer(int seconds, TaskDelegate task)
+        {
+            Console.WriteLine("Timer Started");
+            Thread.Sleep(seconds * 1000);
+            task();
+        }
+
+        static void GreetAfterTenSeconds()
+        {
+            Console.WriteLine("Hello from C# after 10 seconds");
+        }
+
+        // MathDelegate demonstrating multiple methods
+        delegate void MathDelegate(int x, int y);
+
+        static void Add(int x, int y) => Console.WriteLine(x + y);
+        static void Sub(int x, int y) => Console.WriteLine(x - y);
+
+        static void Main(string[] args)
+        {
+            // Demonstrating TaskDelegate
+            StartTimer(2, GreetAfterTenSeconds);
+
+            // Demonstrating MathDelegate
+            MathDelegate del = Add;
+            del += Sub;
+            del(5, 3); // Will execute both Add and Sub
+        }
+    }
+}

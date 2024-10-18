@@ -1,0 +1,27 @@
+using System;
+
+namespace ActionDelegateExample
+{
+    class Program
+    {
+        // Methods for Action delegate
+        static void Greet() => Console.WriteLine("Hello");
+        static void GreetWithMessage(string message) => Console.WriteLine(message);
+        static void Add(int a, int b) => Console.WriteLine(a + b);
+
+        static void Main(string[] args)
+        {
+            // Action with no parameters
+            Action g = Greet;
+            g();
+
+            // Action with one parameter
+            Action<string> gm = GreetWithMessage;
+            gm("Hello, welcome!");
+
+            // Action with two parameters
+            Action<int, int> a = Add;
+            a(10, 20); // Output: 30
+        }
+    }
+}

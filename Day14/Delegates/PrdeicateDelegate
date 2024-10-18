@@ -1,0 +1,20 @@
+using System;
+
+namespace PredicateDelegateExample
+{
+    class Program
+    {
+        // Method for Predicate delegate
+        static bool IsEven(int n) => n % 2 == 0;
+
+        static void Main(string[] args)
+        {
+            // Using Predicate delegate
+            Predicate<int> isEvenPredicate = IsEven;
+
+            // Test if number is even
+            Console.WriteLine(isEvenPredicate(4)); // Output: True
+            Console.WriteLine(isEvenPredicate(5)); // Output: False
+        }
+    }
+}

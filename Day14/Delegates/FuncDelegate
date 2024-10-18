@@ -1,0 +1,22 @@
+using System;
+
+namespace FuncDelegateExample
+{
+    class Program
+    {
+        // Methods for Func delegate
+        static int GetNumber() => 10;
+        static string Add(int a, int b) => (a + b).ToString();
+
+        static void Main(string[] args)
+        {
+            // Func delegate with no parameters and returning an int
+            Func<int> gn = GetNumber;
+            Console.WriteLine(gn()); // Output: 10
+
+            // Func delegate with two int parameters and returning a string
+            Func<int, int, string> addFunc = Add;
+            Console.WriteLine(addFunc(5, 3)); // Output: "8"
+        }
+    }
+}
