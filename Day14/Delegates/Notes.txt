@@ -1,0 +1,35 @@
+A delegate in C# is a type-safe function pointer that allows you to reference methods with a specific signature (method signature includes the return type and the parameter list).
+Delegates are used to pass methods as arguments to other methods, making them useful for callbacks, event handling, and defining custom behavior at runtime.
+The key feature of a delegate is that it can hold references to methods, and these methods can be invoked through the delegate instance.
+
+Action Delegate:
+Action is another built-in delegate type in C# that represents methods that do not return a value (i.e., methods with a void return type).
+Syntax:
+Action<parameterTypes>
+Example:
+Action<string> greet = message => Console.WriteLine(message);
+greet("Hello from Action!");  // Output: Hello from Action!
+
+
+Func Delegate:
+Func is a built-in delegate type in C# that represents methods that return a value.
+Func can have 0 to 16 input parameters and must have a return type.
+The last parameter in the Func signature is always the return type.
+Syntax:
+Func<parameterTypes, returnType>
+Example:
+Func<int, int, int> add = (a, b) => a + b;  // Two int inputs, one int output
+int result = add(3, 5);                     // Output: 8
+
+
+
+
+Predicate Delegate:
+Predicate is a delegate that represents a method that returns a bool and takes one input parameter.
+It is commonly used to check for conditions, especially in search or filter operations.
+Syntax:
+Predicate<parameterType>
+Example:
+Predicate<int> isEven = number => number % 2 == 0;
+bool result = isEven(4);  // Output: true
+
