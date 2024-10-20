@@ -1,0 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program13
+{
+    internal class Fan : Appliance
+    {
+        public override void TurnOn()
+        {
+            Console.WriteLine("The fan is now ON.");
+        }
+    }
+}

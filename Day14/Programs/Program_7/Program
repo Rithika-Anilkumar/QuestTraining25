@@ -1,0 +1,21 @@
+// 7: Define a Func<int, int, int> delegate that takes two integers as parameters and returns their sum
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FuncDelegate
+{
+    internal class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            Func<int, int, int> add = (x, y) => x + y;
+            int result = add(5, 10);
+            Console.WriteLine("The sum of 5 and 10 is: " + result);
+        }
+    }
+}

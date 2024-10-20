@@ -1,0 +1,22 @@
+// 4: Write an interface ICalculator that has methods Add(int a, int b) and Subtract(int a, int b). Implement this interface in a SimpleCalculator class.
+ 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace InterfaceCalculator
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            ICalculator simplecalculator = new SimpleCalculator();
+            int resultAdd = simplecalculator.Add(1, 2);
+            Console.WriteLine(resultAdd);
+            int resultSubtract = simplecalculator.Sub(3, 1);
+            Console.WriteLine(resultSubtract);
+        }
+    }
+}

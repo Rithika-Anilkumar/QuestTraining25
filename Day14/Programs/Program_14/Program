@@ -1,0 +1,21 @@
+// 14: Create an abstract class Person with an abstract method Work(). Implement Work() in derived classes Doctor and Engineer to describe their specific job
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program14
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Person myDoctor = new Doctor();
+            Person myEngineer = new Engineer();
+            myDoctor.Work();   
+            myEngineer.Work();
+        }
+    }
+}

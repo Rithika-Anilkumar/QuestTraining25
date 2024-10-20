@@ -1,0 +1,22 @@
+// 1: Define an abstract class called Shape with an abstract method Area(). Create two derived classes Circle and Rectangle that implement the Area() method for calculating the area of the respective shapes.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace dayFourteenAftn
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Circle circle = new Circle(5);
+            Console.WriteLine($"Area :{circle.Area()}");
+
+            Rectangle rectangle = new Rectangle(4, 6);
+            Console.WriteLine($"Area:{rectangle.Area()}");
+        }
+    }
+}

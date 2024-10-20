@@ -1,0 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program14
+{
+    internal class Engineer : Person
+    {
+        public override void Work()
+        {
+            Console.WriteLine("The engineer designs and builds structures or systems.");
+        }
+    }
+}
