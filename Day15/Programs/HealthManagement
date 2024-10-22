@@ -1,0 +1,124 @@
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace HealthcareSystem
+{
+   
+    public class Patient
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public string Gender { get; set; }
+        public string MedicalCondition { get; set; }
+    }
+
+   
+    public class Appointment
+    {
+        public int Id { get; set; }
+        public int PatientId { get; set; }
+        public string DoctorName { get; set; }
+        public DateTime AppointmentDate { get; set; }
+        public string AppointmentType { get; set; }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            
+            var patients = new List<Patient>
+            {
+                 new Patient { Id = 1, Name = "John", Age = 65, Gender = "Male", MedicalCondition = "Diabetes" },
+                new Patient { Id = 2, Name = "Alice", Age = 30, Gender = "Female", MedicalCondition = "Asthma" },
+                new Patient { Id = 3, Name = "Bob", Age = 70, Gender = "Male", MedicalCondition = "Hypertension" },
+                new Patient { Id = 4, Name = "Sara", Age = 55, Gender = "Female", MedicalCondition = "Diabetes" }
+            };
+        
+
+            
+            var appointments = new List<Appointment>
+            {
+                new Appointment { Id = 1, PatientId = 1, DoctorName = "Dr. Smith", AppointmentDate = DateTime.Now.AddDays(3), AppointmentType = "Consultation" },
+                new Appointment { Id = 2, PatientId = 2, DoctorName = "Dr. Brown", AppointmentDate = DateTime.Now.AddDays(8), AppointmentType = "Follow-up" },
+                new Appointment { Id = 3, PatientId = 3, DoctorName = "Dr. White", AppointmentDate = DateTime.Now.AddDays(-10), AppointmentType = "Consultation" },
+                new Appointment { Id = 4, PatientId = 3, DoctorName = "Dr. White", AppointmentDate = DateTime.Now.AddDays(-25), AppointmentType = "Follow-up" },
+                new Appointment { Id = 5, PatientId = 4, DoctorName = "Dr. Black", AppointmentDate = DateTime.Now.AddDays(4), AppointmentType = "Surgery" }
+            };
+
+            //1
+
+            DateTime today = DateTime.Now;
+            var upcomingPatients = from p in patients
+                                   join a in appointments on p.Id equals a.PatientId
+                                   where a.AppointmentDate >= today && a.AppointmentDate <= today.AddDays(7)
+                                   select new { p.Name, p.Age, p.MedicalCondition };
+
+            Console.WriteLine("Patients with appointments in the next 7 days:");
+            foreach (var p in upcomingPatients)
+            {
+                Console.WriteLine($"{p.Name}, Age: {p.Age}, Condition: {p.MedicalCondition}");
+            }
+
+            //2
+            var groupedPatients = from p in patients
+                                  join a in appointments on p.Id equals a.PatientId
+                                  where a.AppointmentDate >= today && a.AppointmentDate <= today.AddDays(7)
+                                  group p by p.MedicalCondition into conditionGroup
+                                  select new { MedicalCondition = conditionGroup.Key, Count = conditionGroup.Count() };
+
+            Console.WriteLine("\nPatients grouped by medical condition with upcoming appointments:");
+            foreach (var group in groupedPatients)
+            {
+                Console.WriteLine($"Condition: {group.MedicalCondition}, Count: {group.Count}");
+            }
+
+            //3
+
+            var recentAppointments = appointments.Where(a => a.AppointmentDate >= today.AddDays(-30));
+
+            var patientAppointmentCounts = recentAppointments
+                .GroupBy(a => a.PatientId)
+                .Select(group => new { PatientId = group.Key, Count = group.Count() });
+
+            int maxAppointments = patientAppointmentCounts.Max(pa => pa.Count);
+
+            var patientsWithMostAppointments = from p in patients
+                                               join pa in patientAppointmentCounts on p.Id equals pa.PatientId
+                                               where pa.Count == maxAppointments
+                                               select p.Name;
+
+            Console.WriteLine("\nPatient(s) with the most appointments in the last 30 days:");
+            foreach (var name in patientsWithMostAppointments)
+            {
+                Console.WriteLine(name);
+            }
+
+            //4
+
+            var olderPatientsAppointments = from p in patients
+                                            join a in appointments on p.Id equals a.PatientId
+                                            where p.Age > 60
+                                            group a by p into patientGroup
+                                            select new
+                                            {
+                                                Patient = patientGroup.Key,
+                                                MostRecentAppointment = patientGroup.OrderByDescending(a => a.AppointmentDate).FirstOrDefault()
+                                            };
+
+            Console.WriteLine("\nPatients over 60 with their most recent appointment:");
+            foreach (var result in olderPatientsAppointments)
+            {
+                var p = result.Patient;
+                var a = result.MostRecentAppointment;
+                Console.WriteLine($"{p.Name} (Age: {p.Age}),  Date: {a.AppointmentDate}");
+            }
+        }
+    }
+}
