@@ -1,0 +1,24 @@
+//3. Sort in Descending Order
+//Sort a list of integers in descending order.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgramThree
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = new List<int> { 5, 2, 8, 1, 9, 3, 7, 6, 4, 10 };
+            var sortedDescending = numbers.OrderByDescending(n => n).ToList();
+            foreach (var num in sortedDescending)
+            {
+                Console.WriteLine(num);
+            }
+        }
+    }
+}

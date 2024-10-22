@@ -1,0 +1,21 @@
+//10. Find Minimum Value
+//From a list of integers, return the minimum value
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgramTen
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = new List<int> { 5, 2, 8, 1, 9, 3, 7, 6, 4, 10 };
+            int min = numbers.Min();
+            Console.WriteLine(min);
+        }
+    }
+}

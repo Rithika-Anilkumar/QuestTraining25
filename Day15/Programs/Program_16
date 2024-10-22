@@ -1,0 +1,23 @@
+//16. Count Elements Greater Than 10
+//From a list of integers, count how many elements are greater than 10.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgramSixteen
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = new List<int> { 5, 12, 7, 20, 3, 15, 9 };
+            var count = numbers.Count(n => n > 10);
+            Console.WriteLine(count);
+
+
+        }
+    }
+}

@@ -1,0 +1,29 @@
+//6. Find First String Starting with 'B'
+//From a list of strings, return the first string that starts with the letter 'B'. If none exists, return null.
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgramSix
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> words = new List<string> { "Apple", "Banana", "Avocado", "Cherry", "Blueberry" };
+            var firstStartingWithB = words.FirstOrDefault(w => w.StartsWith("B"));
+            if (firstStartingWithB != null)
+            {
+                Console.WriteLine("First string starting with 'B': " + firstStartingWithB);
+            }
+            else
+            {
+                Console.WriteLine("No string starting with 'B' found.");
+            }
+        }
+    }
+}

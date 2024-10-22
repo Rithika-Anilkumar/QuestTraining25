@@ -1,0 +1,24 @@
+//1. Filter Even Numbers
+//Given a list of integers, return all the even numbers.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgramOne
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            var evenNumbers = numbers.Where(n => n % 2 == 0).ToList();
+            foreach (var num in evenNumbers)
+            {
+                Console.WriteLine(num);
+            }
+        }
+    }
+}

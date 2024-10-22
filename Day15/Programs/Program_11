@@ -1,0 +1,30 @@
+//11. Check for Numbers Greater Than 50
+//From a list of integers, check if any number is greater than 50.
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ProgramEleven
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = new List<int> { 10, 25, 45, 60, 30 };
+
+            bool hasGreaterThan50 = numbers.Any(n => n > 50);
+
+            if (hasGreaterThan50)
+            {
+                Console.WriteLine("The list contains numbers greater than 50.");
+            }
+            else
+            {
+                Console.WriteLine("The list does not contain any numbers greater than 50.");
+            }
+        }
+    }
+}

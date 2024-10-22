@@ -1,0 +1,25 @@
+//2. Filter Strings Starting with 'A'
+//From a list of strings, return those that start with the letter 'A'.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgramTwo
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> words = new List<string> { "Apple", "Banana", "Avocado", "Cherry", "Apricot", "Blueberry" };
+            var StartingWithA = words.Where(w => w.StartsWith("A")).ToList();
+            foreach (var word in StartingWithA)
+            {
+                Console.WriteLine(word);
+            }
+        }
+    }
+}
+

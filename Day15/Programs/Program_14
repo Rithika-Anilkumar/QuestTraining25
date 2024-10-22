@@ -1,0 +1,23 @@
+//14. Calculate Average
+//Return the average of a list of floating-point numbers.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgramForteen
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<double> numbers = new List<double> { 10.5, 20.75, 30.0, 40.25, 50.5 };
+            var average = numbers.Average();
+            Console.WriteLine(average);
+        }
+
+    
+    }
+}

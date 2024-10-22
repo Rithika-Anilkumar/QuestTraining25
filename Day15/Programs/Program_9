@@ -1,0 +1,22 @@
+//9. Find Maximum Value
+//From a list of integers, return the maximum value.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgramNine
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = new List<int> { 5, 2, 8, 1, 9, 3, 7, 6, 4, 10 };
+            int max = numbers.Max();
+            Console.WriteLine(max);
+        }
+    }
+}
+

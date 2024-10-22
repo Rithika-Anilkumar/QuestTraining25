@@ -1,0 +1,21 @@
+//15. Remove Duplicates
+//From a list of integers with duplicates, return only the distinct numbers.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgramFifteen
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = new List<int> { 10, 20, 30, 10, 40, 20, 50 };
+            var distinct = numbers.Distinct().ToList();
+            Console.WriteLine("Distinct numbers: " + string.Join(", ", distinct));
+        }
+    }
+}

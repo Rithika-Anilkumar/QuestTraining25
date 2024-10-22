@@ -1,0 +1,26 @@
+//20. Zip Two Lists Together
+//Given two lists of the same length, combine corresponding elements into pairs.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ProgramTwenty
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> names = new List<string> { "Alice", "Bob", "Charlie" };
+            List<int> ages = new List<int> { 25, 30, 35 };
+
+            
+            var pairedList = names.Zip(ages, (name, age) => new { Name = name, Age = age });
+
+            foreach (var pair in pairedList)
+            {
+                Console.WriteLine($"{pair.Name} is {pair.Age} years old.");
+            }
+        }
+    }
+}

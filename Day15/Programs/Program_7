@@ -1,0 +1,11 @@
+//7. Students Scoring Above 80
+//Given two lists, one containing students' names and the other their grades, return the names of students who scored more than 80.
+
+var names = new List<string>(){"s1","s2","s3","s4","s5"};
+var marks = new List<int>(){80,90,85,40,50};
+var res = names
+                .Zip(marks,(name,mark)=>{return new {name,mark};})
+                .Where(s=>s.mark > 80);
+                foreach(var item in res){
+                    Console.WriteLine(item);
+                }

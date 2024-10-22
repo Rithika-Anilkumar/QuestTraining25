@@ -1,0 +1,22 @@
+//13. Sum of All Elements
+//Return the sum of all elements in a list of integers.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgramThirteen
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = new List<int> { 10, 20, 30, 40, 50 };
+            var totalSum = numbers.Sum();
+            Console.WriteLine(totalSum);
+        }
+    }
+}
+

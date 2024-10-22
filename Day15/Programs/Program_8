@@ -1,0 +1,28 @@
+//8. Group Words by Length
+//Group a list of words by their length.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProgramEight
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> words = new List<string> { "apple", "banana", "cherry", "date", "fig", "grape" };
+            var groupedWords = words.GroupBy(w => w.Length);
+            foreach (var group in groupedWords)
+            {
+                Console.WriteLine($"Words  {group.Key}:");
+                foreach (var word in group)
+                {
+                    Console.WriteLine(word);
+                }
+            }
+        }
+    }
+}
