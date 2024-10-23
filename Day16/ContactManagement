@@ -17,7 +17,7 @@ namespace Day15newcontact
 
     public class ContactRepository
     {
-        private string connStr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Dell\\Documents\\Questdb.mdf\r\n\r\n;Integrated Security=True;Connect Timeout=30";
+        private string connStr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Dell\\Documents\\Questdb.mdf;Integrated Security=True;";
 
         public ContactRepository()
         {
