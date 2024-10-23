@@ -1,0 +1,77 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace dayEight
+{
+    internal class Program
+    {
+        static List<int> patientIds = new List<int>();
+        static List<string> patientNames = new List<string>();
+        static List<int> patientAges = new List<int>();
+        static List<List<string>> patientSymptoms = new List<List<string>>();
+
+        static int nextId = 1;
+
+        Function to add a new patient
+        static void AddPatient(string name, int age, List<string> symptoms)
+        {
+            patientIds.Add(nextId);
+            patientNames.Add(name);
+            patientAges.Add(age);
+            patientSymptoms.Add(symptoms);
+            Console.WriteLine($"Patient added with ID: {nextId}");
+            nextId++;
+        }
+
+        Function to get patient details by ID
+        static void GetPatient(int id)
+        {
+            int index = patientIds.IndexOf(id);
+            if (index != -1)
+            {
+                Console.WriteLine($"\nPatient Found - ID: {patientIds[index]}, Name: {patientNames[index]}, Age: {patientAges[index]}, Symptoms: {string.Join(", ", patientSymptoms[index])}");
+            }
+            else
+            {
+                Console.WriteLine("Patient not found.");
+            }
+        }
+
+        Function to get patients by symptom
+        static void GetPatientsBySymptom(string symptom)
+        {
+            List<int> matchingPatients = new List<int>();
+            for (int i = 0; i < patientSymptoms.Count; i++)
+            {
+                if (patientSymptoms[i].Contains(symptom))
+                {
+                    matchingPatients.Add(patientIds[i]);
+                }
+            }
+
+            if (matchingPatients.Count > 0)
+            {
+                Console.WriteLine("\nPatients with " + symptom + ": " + string.Join(", ", matchingPatients));
+            }
+            else
+            {
+                Console.WriteLine("\nNo patients found with the symptom: " + symptom);
+            }
+        }
+        static void Main(string[] args)
+        {
+            Adding patients
+            AddPatient("John Doe", 30, new List<string> { "Fever", "Cough" });
+            AddPatient("Jane Smith", 25, new List<string> { "Headache", "Nausea" });
+
+            Retrieve patient by ID
+            GetPatient(1);
+
+            Retrieve patients by symptom
+            GetPatientsBySymptom("Fever");
+        }
+    }
+}
