@@ -1,0 +1,93 @@
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace test2.Repositories
+{
+    internal class Doctor
+    {
+        private static string connStr = "Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Dell\\Documents\\Questdb.mdf;Integrated Security=True;";
+
+        private static void EnsureConnectionOpen(SqlConnection connection)
+        {
+            if (connection.State == System.Data.ConnectionState.Closed)
+            {
+                connection.Open();
+            }
+        }
+
+        public static void AddDoctor()
+        {
+            Console.Write("Enter Doctor Name: ");
+            string name = Console.ReadLine();
+            Console.Write("Enter Specialization: ");
+            string specialization = Console.ReadLine();
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                EnsureConnectionOpen(conn);
+                string query = "INSERT INTO Doctor (Name, Specialization) VALUES (@Name, @Specialization)";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Parameters.AddWithValue("@Specialization", specialization);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Doctor added");
+            }
+        }
+
+        public static void DisplayDoctors()
+        {
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                EnsureConnectionOpen(conn);
+                string query = "SELECT * FROM Doctor";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                SqlDataReader reader = cmd.ExecuteReader();
+
+                Console.WriteLine("Doctors:");
+                while (reader.Read())
+                {
+                    Console.WriteLine($"Id: {reader["Id"]}, Name: {reader["Name"]}, Specialization: {reader["Specialization"]}");
+                }
+            }
+        }
+
+        public static void UpdateDoctor()
+        {
+            Console.Write("Enter Doctor Id to Update: ");
+            int id = int.Parse(Console.ReadLine());
+            Console.Write("Enter New Specialization: ");
+            string specialization = Console.ReadLine();
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                EnsureConnectionOpen(conn);
+                string query = "UPDATE Doctor SET Specialization = @Specialization WHERE Id = @Id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Specialization", specialization);
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Doctor data updated");
+            }
+        }
+
+        public static void DeleteDoctor()
+        {
+            Console.Write("Enter Doctor Id to Delete: ");
+            int id = int.Parse(Console.ReadLine());
+
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                EnsureConnectionOpen(conn);
+                string query = "DELETE FROM Doctor WHERE Id = @Id";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@Id", id);
+                cmd.ExecuteNonQuery();
+                Console.WriteLine("Doctor data deleted");
+            }
+        }
+    }
+}

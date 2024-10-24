@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using test2.Repositories;
+
+namespace test2
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                Console.WriteLine("1. Add Patient");
+                Console.WriteLine("2. Display Patients");
+                Console.WriteLine("3. Update Patient Medical Condition");
+                Console.WriteLine("4. Delete Patient");
+                Console.WriteLine("0. Exit");
+                Console.WriteLine("1. Add Doctor");
+                Console.WriteLine("2. Display Doctors");
+                Console.WriteLine("3. Update Doctor Specialization");
+                Console.WriteLine("4. Delete Doctor");
+                Console.Write("Enter option: ");
+                int option = int.Parse(Console.ReadLine());
+                switch (option)
+                {
+                    case 1:
+                        Patient.AddPatient();
+                        break;
+                    case 2:
+                        Patient.DisplayPatients();
+                        break;
+                    case 3:
+                        Patient.UpdatePatient();
+                        break;
+                    case 4:
+                        Patient.DeletePatient();
+                        break;
+                    case 5:
+                        Doctor.AddDoctor();
+                        break;
+                    case 6:
+                        Doctor.DisplayDoctors();
+                        break;
+                    case 7:
+                        Doctor.UpdateDoctor();
+                        break;
+                    case 8:
+                        Doctor.DeleteDoctor();
+                        break;
+                    case 0:
+                        Console.WriteLine("Exit");
+                        return;
+                    default:
+                        Console.WriteLine("INVALID");
+                        break;
+                }
+            }
+        
+        }
+    }
+}
