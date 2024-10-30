@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Cart
+{
+    internal class Cart
+    {
+        private List<CartItem> items;
+
+        public Cart()
+        {
+            items = new List<CartItem>();
+        }
+
+        public void AddItem(CartItem item)
+        {
+            items.Add(item);
+        }
+
+        public void UpdateItem(string name, int quantity)
+        {
+            var item = items.FirstOrDefault(i => i.Name == name);
+            if (item != null)
+            {
+                item.Quantity = quantity;
+            }
+        }
+
+        public void RemoveItem(string name)
+        {
+            var item = items.FirstOrDefault(i => i.Name == name);
+            if (item != null)
+            {
+                items.Remove(item);
+            }
+        }
+
+        public List<CartItem> GetItems()
+        {
+            return items;
+        }
+
+        public decimal CalculateTotal()
+        {
+            return items.Sum(item => item.TotalPrice);
+        }
+    }
+}

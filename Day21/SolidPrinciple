@@ -1,0 +1,122 @@
+1. Single Responsibility Principle (SRP)
+
+
+Definition: A class should have only one reason to change, meaning it should have a single responsibility.
+
+Example in C#: Suppose we have a Report class that generates a report and also saves it to a file. This class has two responsibilities: generating and saving.
+By splitting responsibilities, ReportGenerator is responsible for generating, and ReportSaver is responsible for saving the report.
+
+public class ReportGenerator
+{
+    public string GenerateReport() => "Report Data";
+}
+
+public class ReportSaver
+{
+    public void SaveReport(string reportData) 
+    {
+        // Save logic here
+    }
+}
+
+2.Open/Closed Principle (OCP)
+
+Definition: Software entities (classes, modules, functions) should be open for extension but closed for modification.
+
+Example : Instead of modifying a class to add a new feature, you can extend it.
+Adding a new employee type just requires creating a new class (e.g., InternEmployee) without modifying existing ones.
+
+public abstract class Employee
+{
+    public abstract double CalculateBonus(double salary);
+}
+
+public class PermanentEmployee : Employee
+{
+    public override double CalculateBonus(double salary) => salary * 0.1;
+}
+
+public class ContractEmployee : Employee
+{
+    public override double CalculateBonus(double salary) => salary * 0.05;
+}
+
+
+3.Liskov Substitution Principle (LSP)
+
+Definition: Subtypes must be substitutable for their base types without altering the correctness of the program.
+
+Example in C#: For instance, if a class Bird has a method Fly(), it might not be suitable for a Penguin subclass.
+By designing Move as an abstract method and implementing Fly and Swim in appropriate subclasses, we can ensure proper substitution.
+
+public abstract class Bird
+{
+    public abstract void Move();
+}
+
+public class Sparrow : Bird
+{
+    public override void Move() => Console.WriteLine("Flying");
+}
+
+public class Penguin : Bird
+{
+    public override void Move() => Console.WriteLine("Swimming");
+}
+
+4.Interface Segregation Principle (ISP)
+
+Definition: Clients should not be forced to implement interfaces they don’t use; instead, split large interfaces into smaller, more specific ones.
+
+Example in C#: Instead of a single IMachine interface with unrelated methods, divide it into smaller interfaces.
+This way, SimplePrinter doesn’t need to implement Scan, adhering to ISP.
+
+public interface IPrinter
+{
+    void Print();
+}
+
+public interface IScanner
+{
+    void Scan();
+}
+
+public class MultiFunctionPrinter : IPrinter, IScanner
+{
+    public void Print() { /* Print Logic */ }
+    public void Scan() { /* Scan Logic */ }
+}
+
+public class SimplePrinter : IPrinter
+{
+    public void Print() { /* Print Logic */ }
+}
+
+5.Dependency Inversion Principle (DIP)
+
+Definition: High-level modules should not depend on low-level modules but on abstractions. Abstractions should not depend on details; details should depend on abstractions.
+
+Example in C#: To decouple classes, you can use interfaces and dependency injection.
+Notification depends on the IMessageService abstraction, allowing for flexibility if the messaging service changes.
+
+public interface IMessageService
+{
+    void SendMessage(string message);
+}
+
+public class EmailService : IMessageService
+{
+    public void SendMessage(string message) => Console.WriteLine("Sending email: " + message);
+}
+
+public class Notification
+{
+    private readonly IMessageService _messageService;
+    public Notification(IMessageService messageService)
+    {
+        _messageService = messageService;
+    }
+
+    public void Notify(string message) => _messageService.SendMessage(message);
+}
+

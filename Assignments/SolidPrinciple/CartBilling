@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Cart
+{
+    internal class CartBilling
+    {
+        private readonly Cart cart;
+        private readonly List<Discount> discounts;
+
+        public CartBilling(Cart cart)
+        {
+            this.cart = cart;
+            discounts = new List<Discount>();
+        }
+
+        public void AddDiscount(Discount discount)
+        {
+            discounts.Add(discount);
+        }
+
+        public decimal GetTotalWithDiscounts()
+        {
+            decimal total = cart.CalculateTotal();
+
+            foreach (var discount in discounts)
+            {
+                total = discount.ApplyDiscount(total);
+            }
+
+            return total;
+        }
+    }
+}

@@ -1,0 +1,23 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Cart
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var cart = new Cart();
+            cart.AddItem(new CartItem("Laptop", 1, 1000));
+            cart.AddItem(new CartItem("Mouse", 2, 50));
+
+            var billing = new CartBilling(cart);
+            billing.AddDiscount(new PercentageDiscount(10));
+            decimal finalAmount = billing.GetTotalWithDiscounts();
+            Console.WriteLine($"Final Amount with Discounts: {finalAmount}");
+        }
+    }
+}

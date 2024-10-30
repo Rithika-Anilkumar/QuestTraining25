@@ -1,0 +1,159 @@
+1. Phases of SDLC (Software Development Life Cycle)
+The SDLC is a structured process followed in software development to deliver high-quality
+software systematically and efficiently. Here’s an expanded view of each phase:
+● Requirement Gathering and Analysis:
+○ Involves collecting and analyzing the needs of the end-users, business goals,
+and technical constraints.
+○ Techniques include stakeholder interviews, surveys, and reviewing existing
+systems.
+○ Outcomes are documented as requirements, which form the foundation for all
+other phases.
+● System Design:
+○ Uses requirements to create a blueprint or architecture for the system.
+○ Often includes High-Level Design (HLD), where system architecture is
+planned, and Low-Level Design (LLD), which details specific components
+and interfaces.
+● Implementation (Coding):
+○ The design is translated into actual code. Developers follow coding standards
+and often use version control to manage changes.
+○ Includes writing functions, classes, and modules, as well as setting up
+databases and other infrastructure components.
+● Testing:
+○ Ensures that each part of the system works correctly (Unit Testing),
+components work together (Integration Testing), and the system meets
+requirements (System and Acceptance Testing).
+○ Testing types include functional testing (testing against requirements),
+non-functional testing (performance, security), and user acceptance
+testing (UAT).
+● Deployment:
+○ Software is released to users in a production environment.
+○ This may include training users, migrating data, and configuring the
+environment.
+○ Can be done in phases (Phased Rollout) or all at once (Big Bang).
+● Maintenance:
+○ Involves post-release support, fixing bugs, and adapting the system as
+requirements evolve or new technologies become available.
+○ Maintenance types include corrective (fixing bugs), adaptive (adjusting to
+new conditions), and perfective (improving performance).
+
+
+2. SRS (Software Requirements Specification) Document
+● Definition: An SRS is a detailed description of the system's functionality, constraints,
+and interfaces with external systems.
+● Structure:
+○ Introduction: Defines the purpose, scope, and intended audience of the
+document.
+○ Overall Description: Outlines system functions, user characteristics, and
+constraints (technical, business, legal).
+○ System Requirements: Divides requirements into functional (what the
+system should do) and non-functional (performance, reliability, security).
+○ Interfaces: Specifies how the system will interact with other systems or
+hardware.
+● Importance of an SRS:
+○ Clarity and Communication: Serves as a single source of truth for
+stakeholders, ensuring that everyone understands the project requirements.
+○ Guidance for Development and Testing: Provides a clear guideline for the
+design, coding, and testing teams.
+○ Minimizes Rework: By documenting clear requirements upfront, the SRS
+minimizes changes during later stages, saving time and resources.
+● Why We Need It: The SRS document ensures alignment between stakeholders and
+developers, which reduces the likelihood of misunderstandings and scope changes
+that can delay the project.
+
+
+
+3. Differences Between Unit Testing, Integration Testing, and Acceptance
+Testing
+● Unit Testing:
+○ Tests individual components or methods in isolation, ensuring each part
+functions correctly.
+○ Focuses on testing small pieces of code, typically written by developers.
+○ Example: Testing a function that calculates a discount percentage without any
+dependencies on other modules.
+● Integration Testing:
+○ Tests how different modules or components work together.
+○ Ensures data flows correctly across interfaces and that modules interact as
+expected.
+○ Example: After testing the discount function, you would test it with the billing
+module to ensure the final calculation is correct.
+● Acceptance Testing:
+○ Validates the entire system against business requirements and is often
+performed by end-users.
+○ Ensures the software meets user needs and functions as expected in
+real-world scenarios.
+○ Example: A retailer tests the entire sales system, including discounts, taxes,
+and billing, to confirm it works as intended for end-users.
+
+
+
+4. Classical Waterfall Model
+● Definition: The Waterfall Model is a traditional software development model where
+each phase is completed sequentially.
+● Phases:
+○ Requirement Analysis: Collects requirements to form a detailed SRS
+document.
+○ System Design: Based on the SRS, the system is architected and designed.
+○ Implementation: The design is coded into the actual software product.
+○ Integration and Testing: Tests are conducted to verify functionality and
+system integration.
+○ Deployment: The final product is delivered to the user environment.
+○ Maintenance: Post-deployment support to address any issues or
+enhancements.
+● Limitations:
+○ Lack of flexibility makes it hard to adapt if requirements change mid-project.
+○ Works best when requirements are clear from the beginning, which is rare in
+complex, evolving projects.
+● Use Cases: Best suited for projects with well-defined requirements and limited
+changes, such as smaller internal tools or embedded systems.
+
+
+
+5. Project Planning
+● Definition: Project planning involves creating a roadmap for completing a project
+within defined constraints of scope, time, and cost.
+● Components of Project Planning:
+○ Scope Definition: Identifies what is included in the project and what is not.
+○ Task Breakdown: Divides the project into tasks and sub-tasks (often
+represented as a Work Breakdown Structure).
+○ Scheduling: Defines timelines, deadlines, and milestones.
+○ Resource Allocation: Assigns roles, responsibilities, and resources to each
+task.
+○ Budgeting: Estimates costs associated with resources and time.
+○ Risk Management: Identifies potential risks and plans mitigation strategies.
+● Importance:
+○ A solid project plan helps manage time, costs, and quality, ensuring
+successful project delivery.
+○ Mitigates the risk of scope creep, missed deadlines, and budget overruns.
+
+
+6. Risks Associated with Software Development
+● Technical Risks:
+○ Relate to the technology stack and the feasibility of implementing certain
+functionalities.
+○ Example: Choosing a new or unfamiliar technology can lead to unexpected
+technical challenges or integration issues.
+● Project Risks:
+○ Include issues with resources, time, and scope that may lead to project
+delays or cancellations.
+○ Example: Underestimating the time required to complete a task or facing
+unexpected delays.
+● Operational Risks:
+○ Issues arising from management and workflow processes.
+○ Example: Poor project management practices, like inadequate
+communication or lack of project tracking tools, can lead to disorganization
+and inefficiency.
+● Market Risks:
+○ Changes in the market can make the project irrelevant or reduce its value.
+○ Example: A competing product could release similar features before your
+project is completed.
+● Security Risks:
+○ Risks associated with potential data breaches, unauthorized access, or failure
+to comply with security standards.
+○ Example: Sensitive data may be compromised if the system lacks proper
+encryption or access controls.
+● Mitigation Strategies:
+○ Conducting regular risk assessments and reviews.
+○ Implementing clear, measurable goals.
+○ Ensuring good communication practices among all team members.
+○ Using project management tools to track progress and manage risks
+proactively
